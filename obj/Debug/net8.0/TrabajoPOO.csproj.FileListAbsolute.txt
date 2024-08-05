@@ -12,3 +12,4 @@
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.pdb
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.genruntimeconfig.cache
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/ref/TrabajoPOO.dll
+/home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.sourcelink.json
