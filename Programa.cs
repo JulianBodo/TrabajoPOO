@@ -14,7 +14,7 @@ class Programa
     private static bool MainMenu()
     {
         Console.Clear();
-        Console.WriteLine("MENÚ SISTEMA - \"Sabores Sublimes\"");
+        Console.WriteLine("MENÚ SISTEMA - \"Sublimes Sabores\"");
         Console.WriteLine("Seleccione una opción:");
         Console.WriteLine("1) Opción 1");
         Console.WriteLine("2) Opción 2");
