@@ -4,6 +4,7 @@ class Menu
 {
     static void Main()
     {
+;
         bool showMenu = true;
         while (showMenu)
         {
