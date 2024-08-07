@@ -15,9 +15,9 @@ class Menu
     {
         Console.Clear();
         Console.WriteLine("MENÚ DE SISTEMA - \"Sublimes Sabores\"");
-        Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════════════════════════╗");
-        Console.WriteLine("║    (1) Producto    ║    (2) Detalle    ║    (3)     ║    (4)     ║    (5)     ║");
-        Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════════════════╝");
+        Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
+        Console.WriteLine("║    (1) Producto    ║    (2) Detalle     ║     (X) Salir     ║");
+        Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");
         Console.WriteLine("Presione X para salir.");
         Console.Write("\r\nSeleccione una opción: ");
 
