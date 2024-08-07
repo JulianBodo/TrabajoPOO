@@ -18,7 +18,6 @@ class Menu
         Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
         Console.WriteLine("║    (1) Producto    ║    (2) Detalle     ║     (X) Salir     ║");
         Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");
-        Console.WriteLine("Presione X para salir.");
         Console.Write("\r\nSeleccione una opción: ");
 
         switch (Console.ReadLine())
