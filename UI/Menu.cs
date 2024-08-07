@@ -1,6 +1,6 @@
 ﻿using System;
 
-class Programa
+class Menu
 {
     static void Main()
     {
@@ -15,11 +15,9 @@ class Programa
     {
         Console.Clear();
         Console.WriteLine("MENÚ SISTEMA - \"Sublimes Sabores\"");
-        Console.WriteLine("Seleccione una opción:");
-        Console.WriteLine("1) Opción 1");
-        Console.WriteLine("2) Opción 2");
-        Console.WriteLine("3) Opción 3");
-        Console.WriteLine("4) Salir");
+        Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════════════╗");
+        Console.WriteLine("║   (1) ************   ║   (2) *************  ║   (3) *************   ║   (4) *************  ║");
+        Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════════╝");
         Console.Write("\r\nSeleccione una opción: ");
 
         switch (Console.ReadLine())

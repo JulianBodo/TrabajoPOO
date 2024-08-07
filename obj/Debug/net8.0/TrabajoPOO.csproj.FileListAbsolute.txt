@@ -7,9 +7,9 @@
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.AssemblyInfoInputs.cache
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.AssemblyInfo.cs
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.csproj.CoreCompileInputs.cache
+/home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.sourcelink.json
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.dll
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/refint/TrabajoPOO.dll
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.pdb
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.genruntimeconfig.cache
 /home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/ref/TrabajoPOO.dll
-/home/julian/Documentos/Visual Studio Code/TrabajoPOO/obj/Debug/net8.0/TrabajoPOO.sourcelink.json
