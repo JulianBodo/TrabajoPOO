@@ -1,54 +1,50 @@
-﻿class Menu
+﻿using System;
+
+class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        bool showMenu = true;
-        while (showMenu)
+        while (true)
         {
-            showMenu = MainMenu();
+            Console.Clear();
+            Console.WriteLine("\u001b[1m\u001b[4mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\u001b[0m");
+            Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║    (1) Producto    ║    (2) Detalle     ║     (X) Salir     ║");
+            Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");
+            Console.Write("\r\nSeleccione una opción: ");
+
+            // Captura una tecla sin necesidad de presionar "Enter"
+            var keyInfo = Console.ReadKey(intercept: true);
+            char keyPressed = keyInfo.KeyChar;
+
+            // Procesa la tecla presionada
+            switch (keyPressed)
+            {
+                case '1':
+                    Console.Clear();
+                    Console.WriteLine("● \u001b[1m\u001b[4mPRODUCTO\u001b[0m\u001b[0m");
+                    Console.WriteLine("\r\nPresione Enter para volver al menú principal");
+                    Console.ReadLine();
+                    break;
+                case '2':
+                    Console.Clear();
+                    Console.WriteLine(" ● \u001b[1m\u001b[4mDETALLE\u001b[0m\u001b[0m");
+                    Console.WriteLine(" ╠○ (1) Repartidor");
+                    Console.WriteLine(" ╠○ (2) Cliente");
+                    Console.WriteLine(" ╚○ (3) Envío");
+                    Console.WriteLine("\r\nSeleccione una opción o presione Enter para volver a atrás");
+                    Console.ReadLine();
+                    break;
+                case 'x':
+                    Console.WriteLine("\nSaliendo...");
+                    return;
+                default:
+                    Console.Clear();
+                    Console.WriteLine("\nOpción no válida.");
+                    Console.WriteLine("\r\nPresione Enter para volver al menú principal");
+                    Console.ReadLine();
+                    break;
+            }
         }
-    }
-
-    private static bool MainMenu()
-    {
-        Console.Clear();
-        Console.WriteLine("MENÚ DE SISTEMA - \"Sublimes Sabores\"");
-        Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
-        Console.WriteLine("║    (1) Producto    ║    (2) Detalle     ║     (X) Salir     ║");
-        Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");
-        Console.Write("\r\nSeleccione una opción: ");
-
-        switch (Console.ReadLine())
-        {
-            case "1":
-                Option1();
-                return true;
-            case "2":
-                Option2();
-                return true;   
-            case "x":
-                return false;
-            default:
-                return true;
-        }
-    }
-
-    private static void Option1()
-    {
-        Console.Clear();
-        Console.WriteLine("● \u001b[1m\u001b[4mPRODUCTO\u001b[0m\u001b[0m");
-        Console.WriteLine("\r\nPresione Enter para volver al menú principal");
-        Console.ReadLine();
-    }
-
-    private static void Option2()
-    {
-        Console.Clear();
-        Console.WriteLine(" ● \u001b[1m\u001b[4mDETALLE\u001b[0m\u001b[0m");
-        Console.WriteLine(" ╠○ (1) Repartidor");
-        Console.WriteLine(" ╠○ (2) Cliente");
-        Console.WriteLine(" ╚○ (3) Envío");
-        Console.WriteLine("\r\nSeleccione una opción o presione Enter para volver atrás");
-        Console.ReadLine();
     }
 }
