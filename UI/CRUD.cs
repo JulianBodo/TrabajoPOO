@@ -63,7 +63,7 @@ class CRUD
             Console.Write("Por favor ingrese un precio válido: ");
         }
 
-        productos.Add(new Producto(currentId++, nombre, precio));
+        productos.Add(new Producto(currentId++, nombre, precio, ""));
         Console.WriteLine("Producto creado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
@@ -77,7 +77,7 @@ class CRUD
         {
             foreach (var producto in productos)
             {
-                Console.WriteLine($"ID: {producto.Id}, Nombre: {producto.Nombre}, Precio: {producto.Precio:C}");
+                Console.WriteLine($"ID: {producto.id}, Nombre: {producto.nombre}, Precio: {producto.precio:C}");
             }
         }
         else
@@ -95,25 +95,25 @@ class CRUD
 
         Console.Write("Ingrese el ID del producto a actualizar: ");
         long id;
-        while (!long.TryParse(Console.ReadLine(), out id) || !productos.Any(p => p.Id == id))
+        while (!long.TryParse(Console.ReadLine(), out id) || !productos.Any(p => p.id == id))
         {
             Console.Write("ID no válido. Inténtelo nuevamente: ");
         }
 
-        var producto = productos.First(p => p.Id == id);
+        var producto = productos.First(p => p.id == id);
 
-        Console.Write($"Nombre actual ({producto.Nombre}): ");
+        Console.Write($"Nombre actual ({producto.nombre}): ");
         string? nombre = Console.ReadLine();
         if (!string.IsNullOrEmpty(nombre))
         {
-            producto.Nombre = nombre;
+            producto.nombre = nombre;
         }
 
-        Console.Write($"Precio actual ({producto.Precio:C}): ");
+        Console.Write($"Precio actual ({producto.precio:C}): ");
         float precio;
         if (float.TryParse(Console.ReadLine(), out precio))
         {
-            producto.Precio = precio;
+            producto.precio = precio;
         }
 
         Console.WriteLine("Producto actualizado exitosamente. Presione Enter para continuar...");
@@ -127,12 +127,12 @@ class CRUD
 
         Console.Write("Ingrese el ID del producto a eliminar: ");
         long id;
-        while (!long.TryParse(Console.ReadLine(), out id) || !productos.Any(p => p.Id == id))
+        while (!long.TryParse(Console.ReadLine(), out id) || !productos.Any(p => p.id == id))
         {
             Console.Write("ID no válido. Inténtelo nuevamente: ");
         }
 
-        var producto = productos.First(p => p.Id == id);
+        var producto = productos.First(p => p.id == id);
         productos.Remove(producto);
 
         Console.WriteLine("Producto eliminado exitosamente. Presione Enter para continuar...");
