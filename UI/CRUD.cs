@@ -10,6 +10,7 @@ class CRUD
 
     public static void productMenu()
     {
+        //Menú CRUD
         bool continuar = true;
         while (continuar)
         {
@@ -48,7 +49,7 @@ class CRUD
         }
     }
 
-    static void CrearProducto()
+    static void CrearProducto() //Caso 1, método crear producto
     {
         Console.Clear();
         Console.WriteLine("Crear Producto:");
@@ -68,7 +69,7 @@ class CRUD
         Console.ReadLine();
     }
 
-    static void LeerProductos()
+    static void LeerProductos() //Caso 2, método leer producto
     {
         Console.Clear();
         Console.WriteLine("Lista de Productos:");
@@ -88,7 +89,7 @@ class CRUD
         Console.ReadLine();
     }
 
-    static void ActualizarProducto()
+    static void ActualizarProducto() //Caso 3, método actualizar producto
     {
         Console.Clear();
         Console.WriteLine("Actualizar Producto:");
@@ -120,7 +121,7 @@ class CRUD
         Console.ReadLine();
     }
 
-    static void EliminarProducto()
+    static void EliminarProducto() //Caso 4, método eliminar producto
     {
         Console.Clear();
         Console.WriteLine("Eliminar Producto:");

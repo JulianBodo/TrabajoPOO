@@ -10,6 +10,7 @@ class Program
     //  public MongoDBManager<Tipo> connection = new MongoDBManager(url, database, collection);
     static void Main(string[] args)
     {
+        //Menú principal
         while (true)
         {
             Console.Clear();
@@ -19,11 +20,11 @@ class Program
             Console.WriteLine("╚══════════════════════════════════════════════════════════╝");
             Console.Write("\r\nSeleccione una opción: ");
 
-            // Captura una tecla sin necesidad de presionar "Enter"
+            //Captura una tecla sin necesidad de presionar "Enter"
             var keyInfo = Console.ReadKey(intercept: true);
             char keyPressed = keyInfo.KeyChar;
 
-            // Procesa la tecla presionada
+            //Procesa la tecla presionada
             switch (keyPressed)
             {
                 case '1':
