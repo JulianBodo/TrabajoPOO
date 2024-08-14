@@ -2,7 +2,7 @@
 
 class Menu
 {
-    static string connectionString = "conectionString";
+    static string connectionString = "mongodb+srv://kjistik:332018TgMc@personal.t9z4q.mongodb.net/";
 
     static void Main(string[] args)
     {
