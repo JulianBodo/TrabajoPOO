@@ -1,36 +1,36 @@
 
 using MongoDB.Driver;
 
-public class ClienteServicio
+public class RepartidorServicio
 {
-    ClienteRepositorio repo;
+    RepartidorRepositorio repo;
 
-    public ClienteServicio(ClienteRepositorio repo)
+    public RepartidorServicio(RepartidorRepositorio repo)
     {
         this.repo = repo;
     }
 
-    public void crearCliente() //Caso 1, método crear cliente
+    public void crearRepartidor() //Caso 1, método crear repartidor
     {
         Console.Clear();
-        Console.WriteLine("Crear Producto:");
+        Console.WriteLine("Crear Repartidor:");
 
         Console.Write("Nombre: ");
         string? nombre = Console.ReadLine();
-        Console.Write("Dirección: ");
-        string? address = Console.ReadLine();
+        Console.Write("apellido: ");
+        string? apellido = Console.ReadLine();
 
-        repo.UploadCliente(new Cliente(0, nombre, address));
-        Console.WriteLine("Producto creado exitosamente. Presione Enter para continuar...");
+        repo.UploadCliente(new Repartidor(0, nombre, apellido));
+        Console.WriteLine("Repartidor creado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 
-    public void leerCliente() //Caso 2, método leer cliente
+    public void leerRepartidor() //Caso 2, método leer repartidor
     {
         Console.Clear();
-        Console.WriteLine("Lista de Clientes:");
+        Console.WriteLine("Lista de Repartidores:");
 
-        List<Cliente> clientes = repo.GetClientes();
+        List<Repartidor> clientes = repo.GetClientes();
 
         if (clientes.Any())
         {

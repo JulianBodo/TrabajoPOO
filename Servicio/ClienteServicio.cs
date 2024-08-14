@@ -13,7 +13,7 @@ public class ClienteServicio
     public void crearCliente() //Caso 1, método crear cliente
     {
         Console.Clear();
-        Console.WriteLine("Crear Producto:");
+        Console.WriteLine("Crear Cliente:");
 
         Console.Write("Nombre: ");
         string? nombre = Console.ReadLine();
@@ -21,7 +21,7 @@ public class ClienteServicio
         string? address = Console.ReadLine();
 
         repo.UploadCliente(new Cliente(0, nombre, address));
-        Console.WriteLine("Producto creado exitosamente. Presione Enter para continuar...");
+        Console.WriteLine("Cliente creado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 
