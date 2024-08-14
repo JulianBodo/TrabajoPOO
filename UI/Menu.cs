@@ -2,9 +2,6 @@
 
 class Program
 {
-
-
-
     static void Main(string[] args)
     {
         //Menú principal
@@ -33,10 +30,8 @@ class Program
                     break;
                 case '2':
                     Console.Clear();
-                    Console.WriteLine(" ● \u001b[1m\u001b[4mDETALLE\u001b[0m\u001b[0m");
-                    Console.WriteLine(" ╠○ (1) Repartidor");
-                    Console.WriteLine(" ╠○ (2) Cliente");
-                    Console.WriteLine(" ╚○ (3) Envío");
+                    Console.WriteLine(" ● \u001b[1m\u001b[4mCLIENTES\u001b[0m\u001b[0m");
+                    ClienteController.clientMenu();
                     Console.WriteLine(
                         "\r\nSeleccione una opción o presione Enter para volver a atrás"
                     );

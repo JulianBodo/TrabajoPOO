@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 class ProductoController
 {
-    static string url = "connection string";
+    static string url = "string de conexion";
     static string database = "Sublimes_Sabores";
 
     static ProductoServicio productoServicio = new ProductoServicio(

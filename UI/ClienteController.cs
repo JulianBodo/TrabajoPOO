@@ -1,21 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-class ProductoController
+class ClienteController
 {
-    static string url = "connection string";
+    static string url = "string de conexion";
     static string database = "Sublimes_Sabores";
 
-    static ProductoServicio productoServicio = new ProductoServicio(
-        new ProductoRepositorio(new MongoDBManager<Producto>(url, database, "Producto"))
+    static ClienteServicio clienteServicio = new ClienteServicio(
+        new ClienteRepositorio(new MongoDBManager<Cliente>(url, database, "Cliente"))
     );
 
     // Lista para almacenar los productos
-    static List<Producto> productos = new List<Producto>();
+    static List<Cliente> clientes = new List<Cliente>();
     static long currentId = 1;
 
-    public static void productMenu()
+    public static void clientMenu()
     {
         //Menú CRUD
         bool continuar = true;
@@ -40,19 +36,19 @@ class ProductoController
             switch (opcion)
             {
                 case '1':
-                    productoServicio.crearProducto();
+                    clienteServicio.crearCliente();
                     break;
                 case '2':
-                    productoServicio.leerProductos();
+                    clienteServicio.leerCliente();
                     break;
                 case '3':
-                    productoServicio.buscarProductos();
+                    clienteServicio.buscarCliente();
                     break;
                 case '4':
-                    productoServicio.actualizarProducto();
+                    clienteServicio.actualizarCliente();
                     break;
                 case '5':
-                    productoServicio.eliminarProducto();
+                    clienteServicio.eliminarCLiente();
                     break;
                 case 'x':
                     continuar = false;
