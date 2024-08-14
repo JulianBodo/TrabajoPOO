@@ -4,10 +4,12 @@ class Producto
     public string? Nombre { get; set; }
     public float Precio { get; set; }
 
-    public Producto(long Id, string Nombre, float Precio)
+    public Producto(){}
+    
+    public Producto(long id, string nombre, float precio)
     {
-        this.Id = Id;
-        this.Nombre = Nombre;
-        this.Precio = Precio;
+        Id = id;
+        Nombre = nombre;
+        Precio = precio;
     }
 }
