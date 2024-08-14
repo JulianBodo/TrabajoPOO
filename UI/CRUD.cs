@@ -60,7 +60,7 @@ class CRUD
         float precio;
         while (!float.TryParse(Console.ReadLine(), out precio))
         {
-            Console.Write("Por favor ingresa un precio válido: ");
+            Console.Write("Por favor ingrese un precio válido: ");
         }
 
         productos.Add(new Producto(currentId++, nombre, precio));
@@ -93,11 +93,11 @@ class CRUD
         Console.Clear();
         Console.WriteLine("Actualizar Producto:");
 
-        Console.Write("Ingresa el ID del producto a actualizar: ");
+        Console.Write("Ingrese el ID del producto a actualizar: ");
         long id;
         while (!long.TryParse(Console.ReadLine(), out id) || !productos.Any(p => p.Id == id))
         {
-            Console.Write("ID no válido. Inténtalo de nuevo: ");
+            Console.Write("ID no válido. Inténtelo nuevamente: ");
         }
 
         var producto = productos.First(p => p.Id == id);
@@ -125,11 +125,11 @@ class CRUD
         Console.Clear();
         Console.WriteLine("Eliminar Producto:");
 
-        Console.Write("Ingresa el ID del producto a eliminar: ");
+        Console.Write("Ingrese el ID del producto a eliminar: ");
         long id;
         while (!long.TryParse(Console.ReadLine(), out id) || !productos.Any(p => p.Id == id))
         {
-            Console.Write("ID no válido. Inténtalo de nuevo: ");
+            Console.Write("ID no válido. Inténtelo nuevamente: ");
         }
 
         var producto = productos.First(p => p.Id == id);
