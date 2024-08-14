@@ -42,4 +42,16 @@ public class ClienteRepositorio
         var filter = Builders<Cliente>.Filter.Eq(c => c.id, id);
         return collection.Find(filter).FirstOrDefault();
     }
+
+    public void DeleteClienteById(long id)
+    {
+        var collection = connection.GetCollection();
+        var filter = Builders<Cliente>.Filter.Eq(c => c.id, id);
+        var result = collection.DeleteOne(filter);
+
+        if (result.DeletedCount == 0)
+        {
+            Console.WriteLine("No Cliente found with the specified ID.");
+        }
+    }
 }
