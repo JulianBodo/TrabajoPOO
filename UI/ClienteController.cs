@@ -1,6 +1,6 @@
 class ClienteController
 {
-    static string url = "string de conexion";
+    static string url = Menu.connectionString;
     static string database = "Sublimes_Sabores";
 
     static ClienteServicio clienteServicio = new ClienteServicio(
@@ -48,7 +48,7 @@ class ClienteController
                     clienteServicio.actualizarCliente();
                     break;
                 case '5':
-                    clienteServicio.eliminarCLiente();
+                    clienteServicio.deleteCliente();
                     break;
                 case 'x':
                     continuar = false;

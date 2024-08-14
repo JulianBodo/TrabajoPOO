@@ -1,7 +1,7 @@
 
 class ProductoController
 {
-    static string url = "string de conexion";
+    static string url = Menu.connectionString;
     static string database = "Sublimes_Sabores";
 
     static ProductoServicio productoServicio = new ProductoServicio(

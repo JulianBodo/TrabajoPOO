@@ -106,7 +106,7 @@ public class ClienteServicio
         Console.ReadLine();
     }
 
-    public void eliminarCliente() //Caso 5, método eliminar cliente
+    public void deleteCliente() //Caso 5, método eliminar cliente
     {
         Console.Clear();
         Console.WriteLine("Eliminar Cliente:");

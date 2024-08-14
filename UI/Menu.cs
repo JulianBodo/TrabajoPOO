@@ -2,6 +2,8 @@
 
 class Program
 {
+    static string connectionString = "connectionString";
+
     static void Main(string[] args)
     {
         //Menú principal
