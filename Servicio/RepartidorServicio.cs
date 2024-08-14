@@ -30,95 +30,95 @@ public class RepartidorServicio
         Console.Clear();
         Console.WriteLine("Lista de Repartidores:");
 
-        List<Repartidor> clientes = repo.GetClientes();
+        List<Repartidor> repartidores = repo.GetRepartidor();
 
         if (clientes.Any())
         {
-            foreach (var cliente in clientes)
+            foreach (var repartidor in repartidores)
             {
                 Console.WriteLine(
-                    $"ID: {cliente.id}, Nombre: {cliente.nombre}, Dirección: {cliente.address}"
+                    $"ID: {repartidor.id}, Nombre: {repartidor.nombre}, Apellido: {repartidor.apellido}"
                 );
             }
         }
         else
         {
-            Console.WriteLine("No hay clientes disponibles.");
+            Console.WriteLine("No hay repartidores disponibles.");
         }
         Console.WriteLine("Presione Enter para continuar...");
         Console.ReadLine();
     }
 
-    public void buscarCliente() // Caso 3, método buscar cliente
+    public void buscarRepartidor() // Caso 3, método buscar repartidor
     {
         Console.Clear();
-        Console.WriteLine("Buscar Clientes:");
+        Console.WriteLine("Buscar Repartidor:");
 
-        Console.Write("Ingrese el nombre del cliente a buscar: ");
+        Console.Write("Ingrese el nombre del repartidor a buscar: ");
         string searchTerm = Console.ReadLine();
 
-        List<Cliente> clientes = repo.FindClientesByNombre(searchTerm);
+        List<Repartidor> clientes = repo.FindRepartidoresByNombre(searchTerm);
 
         if (clientes.Any())
         {
-            foreach (var cliente in clientes)
+            foreach (var repartidor in repartidores)
             {
                 Console.WriteLine(
-                    $"ID: {cliente.id}, Nombre: {cliente.nombre}, Dirección: {cliente.address}"
+                    $"ID: {repartidor.id}, Nombre: {repartidor.nombre}, Apellido: {repartidor.apellido}"
                 );
             }
         }
         else
         {
-            Console.WriteLine("No se encontraron clientes con ese nombre.");
+            Console.WriteLine("No se encontraron repartidores con ese nombre.");
         }
         Console.WriteLine("Presione Enter para continuar...");
         Console.ReadLine();
     }
 
-    public void actualizarCliente() //Caso 4, método actualizar cliente
+    public void actualizarRepartidor() //Caso 4, método actualizar repartidor
     {
         Console.Clear();
-        Console.WriteLine("Actualizar Cliente:");
+        Console.WriteLine("Actualizar Repartidor:");
 
-        Console.Write("Ingrese el ID del cliente a actualizar: ");
+        Console.Write("Ingrese el ID del repartidor a actualizar: ");
         long id;
         while (!long.TryParse(Console.ReadLine(), out id))
             Console.WriteLine("Id inexistente. Ingrese un valor válido.");
 
-        Cliente cliente = repo.GetClienteById(id);
+        Repartidor repartidor = repo.GetRepartidorById(id);
 
-        Console.Write($"Nombre actual ({cliente.nombre}): ");
+        Console.Write($"Nombre actual ({repartidor.nombre}): ");
         string? nombre = Console.ReadLine();
         if (!string.IsNullOrEmpty(nombre))
         {
-            cliente.nombre = nombre;
+            repartidor.nombre = nombre;
         }
 
-        Console.Write($"Dirección actual ({cliente.address}): ");
+        Console.Write($"Dirección actual ({repartidor.address}): ");
         string? address = Console.ReadLine();
         if (!string.IsNullOrEmpty(address))
         {
-            cliente.address = address;
+            repartidor.address = address;
         }
-        repo.UpdateCliente(cliente);
-        Console.WriteLine("Cliente actualizado exitosamente. Presione Enter para continuar...");
+        repo.UpdateCliente(repartidor);
+        Console.WriteLine("Repartidor actualizado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 
-    public void deleteCliente() //Caso 5, método eliminar cliente
+    public void deleteCliente() //Caso 5, método eliminar repartidor
     {
         Console.Clear();
-        Console.WriteLine("Eliminar Cliente:");
-        Console.Write("Ingrese el ID del cliente a eliminar: ");
+        Console.WriteLine("Eliminar Repartidor:");
+        Console.Write("Ingrese el ID del repartidor a eliminar: ");
         long id;
         while (!long.TryParse(Console.ReadLine(), out id))
             Console.WriteLine("Id inexistente. Ingrese un valor válido.");
 
-        Cliente cliente = repo.GetClienteById(id);
-        repo.DeleteClienteById(cliente.id);
+        Repartidor repartidor = repo.GetClienteById(id);
+        repo.DeleteClienteById(repartidor.id);
 
-        Console.WriteLine("Cliente eliminado exitosamente. Presione Enter para continuar...");
+        Console.WriteLine("Repartidor eliminado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 }
