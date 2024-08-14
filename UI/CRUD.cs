@@ -4,6 +4,10 @@ using System.Linq;
 
 class CRUD
 {
+    static string url = "string de conexion";
+    static string database = "Sublimes_Sabores";
+
+ProductoServicio productoServicio = new ProductoServicio(new ProductoRepositorio(new MongoDBManager<Producto> (url, database, "Producto")));
     // Lista para almacenar los productos
     static List<Producto> productos = new List<Producto>();
     static long currentId = 1;
