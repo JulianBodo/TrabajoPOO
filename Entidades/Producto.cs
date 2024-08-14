@@ -1,4 +1,4 @@
-class Producto0
+class Producto
 {
     long id { set; get; }
     string nombre { set; get; }
