@@ -1,8 +1,8 @@
 ﻿using System;
 
-class Program
+class Menu
 {
-    static string connectionString = "coonectionString";
+    static string connectionString = "conectionString";
 
     static void Main(string[] args)
     {
