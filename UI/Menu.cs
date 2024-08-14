@@ -2,7 +2,7 @@
 
 class Menu
 {
-    static string connectionString = "connectionString";
+    public static string connectionString = "connectionString";
 
     static void Main(string[] args)
     {

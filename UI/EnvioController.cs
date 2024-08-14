@@ -1,4 +1,4 @@
-class ClienteController
+class EnvioController
 {
     static string url = Menu.connectionString;
     static string database = "Sublimes_Sabores";
@@ -32,16 +32,16 @@ class ClienteController
             switch (opcion)
             {
                 case '1':
-                    repartidorServicio.crearCliente();
+                    //        repartidorServicio.crearCliente();
                     break;
                 case '2':
-                    repartidorServicio.leerCliente();
+                    //      repartidorServicio.leerCliente();
                     break;
                 case '3':
-                    repartidorServicio.actualizarCliente();
+                    //    repartidorServicio.actualizarCliente();
                     break;
                 case '4':
-                    repartidorServicio.deleteCliente();
+                    //    repartidorServicio.deleteCliente();
                     break;
                 case 'x':
                     continuar = false;
