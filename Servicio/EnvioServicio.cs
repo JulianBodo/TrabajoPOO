@@ -1,4 +1,4 @@
-
+using System.Collections.Generic;
 using MongoDB.Driver;
 
 public class EnvioServicio
@@ -24,22 +24,22 @@ public class EnvioServicio
     public void leerCliente() //Caso 2, método leer cliente
     {
         Console.Clear();
-        Console.WriteLine("Lista de Clientes:");
+        Console.WriteLine("Lista de envios:");
 
-        List<Cliente> clientes = repo.GetClientes();
+        List<Envio> envios = repo.GetEnvios();
 
-        if (clientes.Any())
+        if (envios.Any())
         {
-            foreach (var cliente in clientes)
+            foreach (var envio in envios)
             {
                 Console.WriteLine(
-                    $"ID: {cliente.id}, Nombre: {cliente.nombre}, Dirección: {cliente.address}"
+                    $"ID: {envio.id}, Productos: {envio.productos.toList()}"
                 );
             }
         }
         else
         {
-            Console.WriteLine("No hay clientes disponibles.");
+            Console.WriteLine("No hay envios disponibles.");
         }
         Console.WriteLine("Presione Enter para continuar...");
         Console.ReadLine();
