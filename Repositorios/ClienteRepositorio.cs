@@ -51,7 +51,7 @@ public class ClienteRepositorio
 
         if (result.DeletedCount == 0)
         {
-            Console.WriteLine("No Cliente found with the specified ID.");
+            Console.WriteLine("Ningún cliente con ese ID.");
         }
     }
 
@@ -64,7 +64,7 @@ public class ClienteRepositorio
 
         if (result.ModifiedCount == 0)
         {
-            Console.WriteLine("No Cliente found with the specified ID, or no changes were made.");
+            Console.WriteLine("Ningún cliente con ese ID o ningún cambio efectuado.");
         }
     }
 
