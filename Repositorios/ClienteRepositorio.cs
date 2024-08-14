@@ -54,4 +54,17 @@ public class ClienteRepositorio
             Console.WriteLine("No Cliente found with the specified ID.");
         }
     }
+
+     public void UpdateCliente(Cliente cliente)
+    {
+        var collection = connection.GetCollection();
+        var filter = Builders<Cliente>.Filter.Eq(c => c.id, cliente.id);
+
+        var result = collection.ReplaceOne(filter, cliente);
+
+        if (result.ModifiedCount == 0)
+        {
+            Console.WriteLine("No Cliente found with the specified ID, or no changes were made.");
+        }
+    }
 }
