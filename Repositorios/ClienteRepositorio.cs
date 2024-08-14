@@ -35,4 +35,11 @@ public class ClienteRepositorio
         var collection = connection.GetCollection();
         collection.InsertOne(cliente);
     }
+
+    public Cliente GetClienteById(long id)
+    {
+        var collection = connection.GetCollection();
+        var filter = Builders<Cliente>.Filter.Eq(c => c.id, id);
+        return collection.Find(filter).FirstOrDefault();
+    }
 }
