@@ -1,9 +1,9 @@
-class Detalle
+public class Detalle
 {
-    long id { set; get; }
-    Repartidor repartidor { set; get; }
-    Cliente cliente { set; get; }
-    Envio envio { set; get; }
+    public long id { set; get; }
+    public Repartidor repartidor { set; get; }
+    public Cliente cliente { set; get; }
+    public Envio envio { set; get; }
 
     public Detalle(long id, Repartidor repartidor, Cliente cliente, Envio envio)
     {
