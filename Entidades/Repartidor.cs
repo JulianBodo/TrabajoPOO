@@ -1,8 +1,8 @@
-class Repartidor
+public class Repartidor
 {
-    long id { get; set; }
-    string nombre { get; set; }
-    string apellido { get; set; }
+    public long id { get; set; }
+    public string nombre { get; set; }
+    public string apellido { get; set; }
     public Repartidor(long id, string nombre, string apellido)
     {
         this.id = id;
