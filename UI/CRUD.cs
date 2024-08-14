@@ -7,7 +7,10 @@ class CRUD
     static string url = "string de conexion";
     static string database = "Sublimes_Sabores";
 
-ProductoServicio productoServicio = new ProductoServicio(new ProductoRepositorio(new MongoDBManager<Producto> (url, database, "Producto")));
+    static ProductoServicio productoServicio = new ProductoServicio(
+        new ProductoRepositorio(new MongoDBManager<Producto>(url, database, "Producto"))
+    );
+
     // Lista para almacenar los productos
     static List<Producto> productos = new List<Producto>();
     static long currentId = 1;
@@ -21,9 +24,15 @@ ProductoServicio productoServicio = new ProductoServicio(new ProductoRepositorio
             Console.Clear();
             Console.WriteLine("\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\n");
             Console.WriteLine("Productos");
-            Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (4) Eliminar    ║    (X) Atrás    ║");
-            Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
+            Console.WriteLine(
+                "╔════════════════════════════════════════════════════════════════════════════════════════════════╗"
+            );
+            Console.WriteLine(
+                "║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (4) Eliminar    ║    (X) Atrás    ║"
+            );
+            Console.WriteLine(
+                "╚════════════════════════════════════════════════════════════════════════════════════════════════╝"
+            );
             Console.Write("\r\nSeleccione una opción: ");
 
             var opcion = Console.ReadKey(intercept: true).KeyChar;
@@ -31,7 +40,7 @@ ProductoServicio productoServicio = new ProductoServicio(new ProductoRepositorio
             switch (opcion)
             {
                 case '1':
-                    CrearProducto();
+                    productoServicio.crearProducto();
                     break;
                 case '2':
                     LeerProductos();
@@ -53,25 +62,7 @@ ProductoServicio productoServicio = new ProductoServicio(new ProductoRepositorio
         }
     }
 
-    static void CrearProducto() //Caso 1, método crear producto
-    {
-        Console.Clear();
-        Console.WriteLine("Crear Producto:");
-        
-        Console.Write("Nombre: ");
-        string? nombre = Console.ReadLine();
-        
-        Console.Write("Precio: ");
-        float precio;
-        while (!float.TryParse(Console.ReadLine(), out precio))
-        {
-            Console.Write("Por favor ingrese un precio válido: ");
-        }
 
-        productos.Add(new Producto(currentId++, nombre, precio, ""));
-        Console.WriteLine("Producto creado exitosamente. Presione Enter para continuar...");
-        Console.ReadLine();
-    }
 
     static void LeerProductos() //Caso 2, método leer producto
     {
@@ -82,7 +73,9 @@ ProductoServicio productoServicio = new ProductoServicio(new ProductoRepositorio
         {
             foreach (var producto in productos)
             {
-                Console.WriteLine($"ID: {producto.id}, Nombre: {producto.nombre}, Precio: {producto.precio:C}");
+                Console.WriteLine(
+                    $"ID: {producto.id}, Nombre: {producto.nombre}, Precio: {producto.precio:C}"
+                );
             }
         }
         else
