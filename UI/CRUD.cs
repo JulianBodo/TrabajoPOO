@@ -15,11 +15,10 @@ class CRUD
         {
             Console.Clear();
             Console.WriteLine("Menú CRUD de Productos:");
-            Console.WriteLine("1. Crear Producto");
-            Console.WriteLine("2. Leer Productos");
-            Console.WriteLine("3. Actualizar Producto");
-            Console.WriteLine("4. Eliminar Producto");
-            Console.WriteLine("5. Salir");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (4) Eliminar    ║    (X) Atrás    ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
+            Console.Write("\r\nSeleccione una opción: ");
             Console.Write("Selecciona una opción: ");
 
             var opcion = Console.ReadKey(intercept: true).KeyChar;
@@ -38,7 +37,7 @@ class CRUD
                 case '4':
                     EliminarProducto();
                     break;
-                case '5':
+                case 'x':
                     continuar = false;
                     break;
                 default:

@@ -12,7 +12,7 @@ class Program
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("\u001b[1m\u001b[4mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\u001b[0m");
+            Console.WriteLine("\n\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m");
             Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║    (1) Producto    ║    (2) Detalle     ║     (X) Salir     ║");
             Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");

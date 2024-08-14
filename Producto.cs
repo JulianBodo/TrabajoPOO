@@ -5,8 +5,8 @@ class Producto
     public float Precio { get; set; }
 
     public Producto(){}
-    
-    public Producto(long id, string nombre, float precio)
+
+    public Producto(long id, string? nombre, float precio)
     {
         Id = id;
         Nombre = nombre;
