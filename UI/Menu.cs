@@ -13,10 +13,10 @@ class Program
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("\n\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m");
-            Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║    (1) Producto    ║    (2) Detalle     ║     (X) Salir     ║");
-            Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\n");
+            Console.WriteLine("╔══════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║    (1) Producto    ║    (2) Detalle    ║    (X) Salir    ║");
+            Console.WriteLine("╚══════════════════════════════════════════════════════════╝");
             Console.Write("\r\nSeleccione una opción: ");
 
             // Captura una tecla sin necesidad de presionar "Enter"

@@ -14,12 +14,12 @@ class CRUD
         while (continuar)
         {
             Console.Clear();
-            Console.WriteLine("Menú CRUD de Productos:");
+            Console.WriteLine("\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\n");
+            Console.WriteLine("Productos");
             Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (4) Eliminar    ║    (X) Atrás    ║");
             Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
             Console.Write("\r\nSeleccione una opción: ");
-            Console.Write("Selecciona una opción: ");
 
             var opcion = Console.ReadKey(intercept: true).KeyChar;
 
@@ -41,7 +41,7 @@ class CRUD
                     continuar = false;
                     break;
                 default:
-                    Console.WriteLine("\nOpción no válida. Presiona Enter para continuar...");
+                    Console.WriteLine("\nOpción no válida. Presione Enter para continuar...");
                     Console.ReadLine();
                     break;
             }
@@ -64,7 +64,7 @@ class CRUD
         }
 
         productos.Add(new Producto(currentId++, nombre, precio));
-        Console.WriteLine("Producto creado exitosamente. Presiona Enter para continuar...");
+        Console.WriteLine("Producto creado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 
@@ -84,7 +84,7 @@ class CRUD
         {
             Console.WriteLine("No hay productos disponibles.");
         }
-        Console.WriteLine("Presiona Enter para continuar...");
+        Console.WriteLine("Presione Enter para continuar...");
         Console.ReadLine();
     }
 
@@ -116,7 +116,7 @@ class CRUD
             producto.Precio = precio;
         }
 
-        Console.WriteLine("Producto actualizado exitosamente. Presiona Enter para continuar...");
+        Console.WriteLine("Producto actualizado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 
@@ -135,7 +135,7 @@ class CRUD
         var producto = productos.First(p => p.Id == id);
         productos.Remove(producto);
 
-        Console.WriteLine("Producto eliminado exitosamente. Presiona Enter para continuar...");
+        Console.WriteLine("Producto eliminado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 }
