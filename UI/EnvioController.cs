@@ -1,15 +1,11 @@
-class RepartidorController
+class ClienteController
 {
     static string url = Menu.connectionString;
     static string database = "Sublimes_Sabores";
 
     static RepartidorServicio repartidorServicio = new RepartidorServicio(
-        new RepartidorRepositorio(new MongoDBManager<Repartidor>(url, database, "Repartidor"))
+        new RepartidorRepositorio(new MongoDBManager<Repartidor>(url, database, "Envio"))
     );
-
-    // Lista para almacenar los productos
-    static List<Cliente> clientes = new List<Cliente>();
-    static long currentId = 1;
 
     public static void repartidorMenu()
     {
@@ -19,15 +15,15 @@ class RepartidorController
         {
             Console.Clear();
             Console.WriteLine("\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\n");
-            Console.WriteLine("Repartidores");
+            Console.WriteLine("Envíos");
             Console.WriteLine(
-                "╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗"
+                "╔════════════════════════════════════════════════════════════════════════════════════════════════╗"
             );
             Console.WriteLine(
-                "║    (1) Crear    ║    (2) Leer    ║    (3) Buscar    ║    (4) Actualizar    ║    (5) Eliminar    ║    (X) Atrás    ║"
+                "║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (4) Eliminar    ║    (X) Atrás    ║"
             );
             Console.WriteLine(
-                "╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝"
+                "╚════════════════════════════════════════════════════════════════════════════════════════════════╝"
             );
             Console.Write("\r\nSeleccione una opción: ");
 
@@ -42,12 +38,9 @@ class RepartidorController
                     repartidorServicio.leerCliente();
                     break;
                 case '3':
-                    repartidorServicio.buscarCliente();
-                    break;
-                case '4':
                     repartidorServicio.actualizarCliente();
                     break;
-                case '5':
+                case '4':
                     repartidorServicio.deleteCliente();
                     break;
                 case 'x':
