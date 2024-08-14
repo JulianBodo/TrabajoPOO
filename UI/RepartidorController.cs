@@ -1,4 +1,4 @@
-class ClienteController
+class RepartidorController
 {
     static string url = Menu.connectionString;
     static string database = "Sublimes_Sabores";
