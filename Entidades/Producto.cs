@@ -5,7 +5,7 @@ class Producto
     float precio { set; get; }
     string observacion { set; get; }
 
-    public Producto0(long id, string nombre, float precio, string observacion)
+    public Producto(long id, string nombre, float precio, string observacion)
     {
         this.id = id;
         this.nombre = nombre;
