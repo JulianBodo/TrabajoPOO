@@ -8,7 +8,7 @@ class CRUD
     static List<Producto> productos = new List<Producto>();
     static int currentId = 1;
 
-    static void Main(string[] args)
+    public static void productMenu()
     {
         bool continuar = true;
         while (continuar)
@@ -64,7 +64,7 @@ class CRUD
             Console.Write("Por favor ingresa un precio válido: ");
         }
 
-        productos.Add(new Producto { Id = currentId++, Nombre = nombre, Precio = precio });
+        productos.Add(new Producto(currentId++, nombre, precio));
         Console.WriteLine("Producto creado exitosamente. Presiona Enter para continuar...");
         Console.ReadLine();
     }

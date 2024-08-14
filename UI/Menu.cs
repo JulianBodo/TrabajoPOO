@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 
 class Program
 {
     static void Main(string[] args)
     {
+
         while (true)
         {
             Console.Clear();
@@ -23,6 +24,7 @@ class Program
                 case '1':
                     Console.Clear();
                     Console.WriteLine("● \u001b[1m\u001b[4mPRODUCTO\u001b[0m\u001b[0m");
+                    CRUD.productMenu();
                     Console.WriteLine("\r\nPresione Enter para volver al menú principal");
                     Console.ReadLine();
                     break;
