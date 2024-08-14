@@ -55,7 +55,7 @@ public class ClienteRepositorio
         }
     }
 
-     public void UpdateCliente(Cliente cliente)
+    public void UpdateCliente(Cliente cliente)
     {
         var collection = connection.GetCollection();
         var filter = Builders<Cliente>.Filter.Eq(c => c.id, cliente.id);
@@ -66,5 +66,15 @@ public class ClienteRepositorio
         {
             Console.WriteLine("No Cliente found with the specified ID, or no changes were made.");
         }
+    }
+
+    public List<Cliente> FindClientesByNombre(string nombre)
+    {
+        var collection = connection.GetCollection();
+        var filter = Builders<Cliente>.Filter.Regex(
+            c => c.nombre,
+            new BsonRegularExpression(nombre, "i")
+        );
+        return collection.Find(filter).ToList();
     }
 }
