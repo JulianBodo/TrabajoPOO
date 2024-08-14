@@ -1,4 +1,4 @@
-class Cliente
+public class Cliente
 {
     public long id { get; set; }
     public string nombre { get; set; }
