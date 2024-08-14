@@ -6,7 +6,7 @@ class CRUD
 {
     // Lista para almacenar los productos
     static List<Producto> productos = new List<Producto>();
-    static int currentId = 1;
+    static long currentId = 1;
 
     public static void productMenu()
     {
