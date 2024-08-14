@@ -2,9 +2,13 @@
 
 class Program
 {
+    static string url = "";
+    static string database = "Sabores_sublimes";
+
+    static string collection = "clientes";
+    public MongoDBManager connection = new MongoDBManager(url, database, collection);
     static void Main(string[] args)
     {
-
         while (true)
         {
             Console.Clear();
