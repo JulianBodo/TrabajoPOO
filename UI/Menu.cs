@@ -2,12 +2,9 @@
 
 class Program
 {
-    static string url = "";
-    static string database = "Sabores_sublimes";
 
-    static string collection = "Coleccion a utilizar";
 
-    //  public MongoDBManager<Tipo> connection = new MongoDBManager(url, database, collection);
+
     static void Main(string[] args)
     {
         //Menú principal
@@ -30,7 +27,7 @@ class Program
                 case '1':
                     Console.Clear();
                     Console.WriteLine("● \u001b[1m\u001b[4mPRODUCTO\u001b[0m\u001b[0m");
-                    CRUD.productMenu();
+                    ProductoController.productMenu();
                     Console.WriteLine("\r\nPresione Enter para volver al menú principal");
                     Console.ReadLine();
                     break;
