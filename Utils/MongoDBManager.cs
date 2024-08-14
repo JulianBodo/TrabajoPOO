@@ -2,10 +2,10 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
 
-public class MongoDBManager
+public class MongoDBManager<T>
 {
     private IMongoDatabase database;
-    private IMongoCollection<Cliente> collection;
+    private IMongoCollection<T> collection;
 
     public MongoDBManager(string connectionString, string databaseName, string collectionName)
     {
@@ -14,10 +14,10 @@ public class MongoDBManager
         database = client.GetDatabase(databaseName);
 
         // Get the collection for Cliente objects
-        collection = database.GetCollection<Cliente>(collectionName);
+        collection = database.GetCollection<T>(collectionName);
     }
 
-    public IMongoCollection<Cliente> GetCollection()
+    public IMongoCollection<T> GetCollection()
     {
         return collection;
     }

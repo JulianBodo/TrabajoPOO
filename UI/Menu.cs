@@ -5,8 +5,9 @@ class Program
     static string url = "";
     static string database = "Sabores_sublimes";
 
-    static string collection = "clientes";
-    public MongoDBManager connection = new MongoDBManager(url, database, collection);
+    static string collection = "Coleccion a utilizar";
+
+    //  public MongoDBManager<Tipo> connection = new MongoDBManager(url, database, collection);
     static void Main(string[] args)
     {
         while (true)
@@ -38,7 +39,9 @@ class Program
                     Console.WriteLine(" ╠○ (1) Repartidor");
                     Console.WriteLine(" ╠○ (2) Cliente");
                     Console.WriteLine(" ╚○ (3) Envío");
-                    Console.WriteLine("\r\nSeleccione una opción o presione Enter para volver a atrás");
+                    Console.WriteLine(
+                        "\r\nSeleccione una opción o presione Enter para volver a atrás"
+                    );
                     Console.ReadLine();
                     break;
                 case 'x':
