@@ -4,7 +4,7 @@ using System.Linq;
 
 class ProductoController
 {
-    static string url = "mongodb+srv://kjistik:332018TgMc@personal.t9z4q.mongodb.net/";
+    static string url = "connection string";
     static string database = "Sublimes_Sabores";
 
     static ProductoServicio productoServicio = new ProductoServicio(
