@@ -54,7 +54,7 @@ public class ProductoServicio
         Console.ReadLine();
     }
 
-    public void buscarProductos() // Caso 3, método buscar producto
+    public List<Producto> buscarProductos() // Caso 3, método buscar producto
     {
         Console.Clear();
         Console.WriteLine("Buscar Productos:");
@@ -79,6 +79,7 @@ public class ProductoServicio
         }
         Console.WriteLine("Presione Enter para continuar...");
         Console.ReadLine();
+        return productos;
     }
 
     public void actualizarProducto() //Caso 4, método actualizar producto
