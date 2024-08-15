@@ -16,10 +16,77 @@ public class EnvioServicio
 
     public void crearEnvio() //Caso 1, método crear cliente
     {
-        /*adquirir lista de productos usando el método de busqueda de clientes*/
-        Console.WriteLine("Envio creado exitosamente. Presione Enter para continuar...");
+        // Adquirir la lista de productos usando el método buscarProductos del servicio
+        List<Producto> productos = service.buscarProductos();
+
+        if (productos.Any())
+        {
+            Console.WriteLine("Ingrese los IDs de los productos a seleccionar para el envío (separados por comas): ");
+            string input = Console.ReadLine();
+            var idsSeleccionados = input.Split(',').Select(id => id.Trim()).ToList();
+
+            List<Producto> productosSeleccionados = new List<Producto>();
+
+            foreach (var idStr in idsSeleccionados)
+            {
+                if (long.TryParse(idStr, out long id))
+                {
+                    Producto productoSeleccionado = productos.FirstOrDefault(p => p.id == id);
+                    if (productoSeleccionado != null)
+                    {
+                        productosSeleccionados.Add(productoSeleccionado);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Producto con ID {id} no encontrado.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"ID inválido: {idStr}");
+                }
+            }
+
+            if (productosSeleccionados.Any())
+            {
+                Console.WriteLine("Productos seleccionados:");
+                foreach (var producto in productosSeleccionados)
+                {
+                    Console.WriteLine($"ID: {producto.id}, Nombre: {producto.nombre}, Precio: {producto.precio:C}");
+                }
+
+                Console.WriteLine("¿Desea confirmar la creación del envío con estos productos? (S/N)");
+                string confirmacion = Console.ReadLine();
+
+                if (confirmacion.Equals("S", StringComparison.OrdinalIgnoreCase))
+                {
+                    Envio nuevoEnvio = new Envio
+                    {
+                        // Suponiendo que Envio tiene una lista de productos
+                        Productos = productosSeleccionados
+                    };
+                    // Guardar el envío en el repositorio
+                    repo.GuardarEnvio(nuevoEnvio);
+                    Console.WriteLine("Envio creado exitosamente.");
+                }
+                else
+                {
+                    Console.WriteLine("Creación de envío cancelada.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No se seleccionaron productos válidos para el envío.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No hay productos disponibles para seleccionar.");
+        }
+        Console.WriteLine("Presione Enter para continuar...");
         Console.ReadLine();
     }
+
 
     public void leerCliente() //Caso 2, método leer cliente
     {
