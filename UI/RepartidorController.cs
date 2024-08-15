@@ -36,19 +36,19 @@ class RepartidorController
             switch (opcion)
             {
                 case '1':
-                    repartidorServicio.crearCliente();
+                    repartidorServicio.crearRepartidor();
                     break;
                 case '2':
-                    repartidorServicio.leerCliente();
+                    repartidorServicio.leerRepartidor();
                     break;
                 case '3':
-                    repartidorServicio.buscarCliente();
+                    repartidorServicio.buscarRepartidor();
                     break;
                 case '4':
-                    repartidorServicio.actualizarCliente();
+                    repartidorServicio.actualizarRepartidor();
                     break;
                 case '5':
-                    repartidorServicio.deleteCliente();
+                    repartidorServicio.deleteRepartidor();
                     break;
                 case 'x':
                     continuar = false;

@@ -20,7 +20,7 @@ public class RepartidorServicio
         Console.Write("apellido: ");
         string? apellido = Console.ReadLine();
 
-        repo.UploadCliente(new Repartidor(0, nombre, apellido));
+        repo.UploadRepartidor(new Repartidor(0, nombre, apellido));
         Console.WriteLine("Repartidor creado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
@@ -30,9 +30,9 @@ public class RepartidorServicio
         Console.Clear();
         Console.WriteLine("Lista de Repartidores:");
 
-        List<Repartidor> repartidores = repo.GetRepartidor();
+        List<Repartidor> repartidores = repo.GetRepartidores();
 
-        if (clientes.Any())
+        if (repartidores.Any())
         {
             foreach (var repartidor in repartidores)
             {
@@ -57,9 +57,9 @@ public class RepartidorServicio
         Console.Write("Ingrese el nombre del repartidor a buscar: ");
         string searchTerm = Console.ReadLine();
 
-        List<Repartidor> clientes = repo.FindRepartidoresByNombre(searchTerm);
+        List<Repartidor> repartidores = repo.FindRepartidoresByNombre(searchTerm);
 
-        if (clientes.Any())
+        if (repartidores.Any())
         {
             foreach (var repartidor in repartidores)
             {
@@ -95,18 +95,18 @@ public class RepartidorServicio
             repartidor.nombre = nombre;
         }
 
-        Console.Write($"Dirección actual ({repartidor.address}): ");
+        Console.Write($"Apellido actual ({repartidor.apellido}): ");
         string? address = Console.ReadLine();
         if (!string.IsNullOrEmpty(address))
         {
-            repartidor.address = address;
+            repartidor.apellido = address;
         }
-        repo.UpdateCliente(repartidor);
+        repo.UpdateRepartidor(repartidor);
         Console.WriteLine("Repartidor actualizado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }
 
-    public void deleteCliente() //Caso 5, método eliminar repartidor
+    public void deleteRepartidor() //Caso 5, método eliminar repartidor
     {
         Console.Clear();
         Console.WriteLine("Eliminar Repartidor:");
@@ -115,8 +115,8 @@ public class RepartidorServicio
         while (!long.TryParse(Console.ReadLine(), out id))
             Console.WriteLine("Id inexistente. Ingrese un valor válido.");
 
-        Repartidor repartidor = repo.GetClienteById(id);
-        repo.DeleteClienteById(repartidor.id);
+        Repartidor repartidor = repo.GetRepartidorById(id);
+        repo.DeleteRepartidorById(repartidor.id);
 
         Console.WriteLine("Repartidor eliminado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
