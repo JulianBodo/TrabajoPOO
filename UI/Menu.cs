@@ -48,7 +48,7 @@ class Menu
                 case '3':
                     Console.Clear();
                     Console.WriteLine(" ● \u001b[1m\u001b[4mREPARTIDORES\u001b[0m\u001b[0m");
-                    ClienteController.clientMenu();
+                    RepartidorController.repartidorMenu();
                     Console.WriteLine(
                         "\r\nSeleccione una opción o presione Enter para volver a atrás"
                     );
