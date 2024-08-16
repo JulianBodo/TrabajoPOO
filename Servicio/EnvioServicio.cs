@@ -7,11 +7,13 @@ public class EnvioServicio
     string database = "Sublimes_Sabores";
     EnvioRepositorio repo;
     ProductoServicio service;
+
     public EnvioServicio(EnvioRepositorio repo)
     {
         this.repo = repo;
         service = new ProductoServicio(
-        new ProductoRepositorio(new MongoDBManager<Producto>(url, database, "Producto")));
+            new ProductoRepositorio(new MongoDBManager<Producto>(url, database, "Producto"))
+        );
     }
 
     public void crearEnvio() //Caso 1, método crear cliente
@@ -21,7 +23,9 @@ public class EnvioServicio
 
         if (productos.Any())
         {
-            Console.WriteLine("Ingrese los IDs de los productos a seleccionar para el envío (separados por comas): ");
+            Console.WriteLine(
+                "Ingrese los IDs de los productos a seleccionar para el envío (separados por comas): "
+            );
             string input = Console.ReadLine();
             var idsSeleccionados = input.Split(',').Select(id => id.Trim()).ToList();
 
@@ -52,21 +56,26 @@ public class EnvioServicio
                 Console.WriteLine("Productos seleccionados:");
                 foreach (var producto in productosSeleccionados)
                 {
-                    Console.WriteLine($"ID: {producto.id}, Nombre: {producto.nombre}, Precio: {producto.precio:C}");
+                    Console.WriteLine(
+                        $"ID: {producto.id}, Nombre: {producto.nombre}, Precio: {producto.precio:C}"
+                    );
                 }
 
-                Console.WriteLine("¿Desea confirmar la creación del envío con estos productos? (S/N)");
+                Console.WriteLine(
+                    "¿Desea confirmar la creación del envío con estos productos? (S/N)"
+                );
                 string confirmacion = Console.ReadLine();
 
                 if (confirmacion.Equals("S", StringComparison.OrdinalIgnoreCase))
                 {
-                    Envio nuevoEnvio = new Envio
+                    Envio nuevoEnvio = new Envio(0, productosSeleccionados);
                     {
                         // Suponiendo que Envio tiene una lista de productos
-                        Productos = productosSeleccionados
-                    };
+                        productos = productosSeleccionados;
+                    }
+                    ;
                     // Guardar el envío en el repositorio
-                    repo.GuardarEnvio(nuevoEnvio);
+                    repo.UploadEnvio(nuevoEnvio);
                     Console.WriteLine("Envio creado exitosamente.");
                 }
                 else
@@ -87,8 +96,7 @@ public class EnvioServicio
         Console.ReadLine();
     }
 
-
-    public void leerCliente() //Caso 2, método leer cliente
+    public void leerEnvio() //Caso 2, método leer envio
     {
         Console.Clear();
         Console.WriteLine("Lista de envios:");
@@ -99,9 +107,11 @@ public class EnvioServicio
         {
             foreach (var envio in envios)
             {
-                Console.WriteLine(
-                    $"ID: {envio.id}, Productos: {envio.productos}"
-                );
+                Console.WriteLine($"Envío N°: {envio.id}");
+                foreach (var producto in envio.productos){
+                    Console.WriteLine("Nombre de producto: {producto.nombre}");
+                Console.WriteLine("Precio: {producto.precio}");
+                }
             }
         }
         else
@@ -112,7 +122,7 @@ public class EnvioServicio
         Console.ReadLine();
     }
 
-    public void actualizarCliente() //Caso 4, método actualizar cliente
+    public void actualizarEnvio() //Caso 4, método actualizar cliente
     {
         Console.Clear();
         Console.WriteLine("Actualizar Cliente:");
@@ -122,22 +132,22 @@ public class EnvioServicio
         while (!long.TryParse(Console.ReadLine(), out id))
             Console.WriteLine("Id inexistente. Ingrese un valor válido.");
 
-//        Cliente cliente = repo.GetClienteById(id);
+        //        Cliente cliente = repo.GetClienteById(id);
 
-  //      Console.Write($"Nombre actual ({cliente.nombre}): ");
+        //      Console.Write($"Nombre actual ({cliente.nombre}): ");
         string? nombre = Console.ReadLine();
         if (!string.IsNullOrEmpty(nombre))
         {
-//            cliente.nombre = nombre;
+            //            cliente.nombre = nombre;
         }
 
-   //     Console.Write($"Dirección actual ({cliente.address}): ");
+        //     Console.Write($"Dirección actual ({cliente.address}): ");
         string? address = Console.ReadLine();
         if (!string.IsNullOrEmpty(address))
         {
-     //       cliente.address = address;
+            //       cliente.address = address;
         }
-       // repo.UpdateCliente(cliente);
+        // repo.UpdateCliente(cliente);
         Console.WriteLine("Cliente actualizado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
     }

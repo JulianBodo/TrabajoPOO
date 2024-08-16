@@ -3,11 +3,11 @@ class EnvioController
     static string url = Menu.connectionString;
     static string database = "Sublimes_Sabores";
 
-    static RepartidorServicio repartidorServicio = new RepartidorServicio(
-        new RepartidorRepositorio(new MongoDBManager<Repartidor>(url, database, "Envio"))
+    static EnvioServicio envioServicio = new EnvioServicio(
+        new EnvioRepositorio(new MongoDBManager<Envio>(url, database, "Envio"))
     );
 
-    public static void repartidorMenu()
+    public static void envioMenu()
     {
         //Menú CRUD
         bool continuar = true;
@@ -32,12 +32,13 @@ class EnvioController
             switch (opcion)
             {
                 case '1':
-                    //        repartidorServicio.crearCliente();
+                    envioServicio.crearEnvio();
                     break;
                 case '2':
-                    //      repartidorServicio.leerCliente();
+                envioServicio.leerEnvio();
                     break;
                 case '3':
+envioServicio.actualizarEnvio();
                     //    repartidorServicio.actualizarCliente();
                     break;
                 case '4':
