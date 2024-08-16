@@ -108,9 +108,10 @@ public class EnvioServicio
             foreach (var envio in envios)
             {
                 Console.WriteLine($"Envío N°: {envio.id}");
-                foreach (var producto in envio.productos){
-                    Console.WriteLine("Nombre de producto: {producto.nombre}");
-                Console.WriteLine("Precio: {producto.precio}");
+                foreach (var producto in envio.productos)
+                {
+                    Console.WriteLine($"Nombre de producto: {producto.nombre}");
+                    Console.WriteLine($"Precio: {producto.precio}");
                 }
             }
         }
@@ -122,33 +123,100 @@ public class EnvioServicio
         Console.ReadLine();
     }
 
-    public void actualizarEnvio() //Caso 4, método actualizar cliente
+    public void ActualizarEnvio()
     {
         Console.Clear();
-        Console.WriteLine("Actualizar Cliente:");
+        Console.WriteLine("Actualizar Envío:");
 
-        Console.Write("Ingrese el ID del cliente a actualizar: ");
+        // Pedir el ID del envío a actualizar
+        Console.Write("Ingrese el ID del envío a actualizar: ");
         long id;
         while (!long.TryParse(Console.ReadLine(), out id))
-            Console.WriteLine("Id inexistente. Ingrese un valor válido.");
+            Console.WriteLine("ID inválido. Ingrese un valor válido.");
 
-        //        Cliente cliente = repo.GetClienteById(id);
+        // Obtener el envío desde el repositorio
+        Envio envio = repo.GetEnvioById(id);
 
-        //      Console.Write($"Nombre actual ({cliente.nombre}): ");
-        string? nombre = Console.ReadLine();
-        if (!string.IsNullOrEmpty(nombre))
+        if (envio == null)
         {
-            //            cliente.nombre = nombre;
+            Console.WriteLine("No se encontró un envío con ese ID.");
+            Console.WriteLine("Presione Enter para continuar...");
+            Console.ReadLine();
+            return;
         }
 
-        //     Console.Write($"Dirección actual ({cliente.address}): ");
-        string? address = Console.ReadLine();
-        if (!string.IsNullOrEmpty(address))
+        // Obtener la lista de productos usando el método buscarProductos del servicio
+        List<Producto> productos = service.buscarProductos();
+
+        if (productos.Any())
         {
-            //       cliente.address = address;
+            Console.WriteLine(
+                "Ingrese los IDs de los productos a seleccionar para actualizar el envío (separados por comas): "
+            );
+            string input = Console.ReadLine();
+            var idsSeleccionados = input.Split(',').Select(id => id.Trim()).ToList();
+
+            List<Producto> productosSeleccionados = new List<Producto>();
+
+            foreach (var idStr in idsSeleccionados)
+            {
+                if (long.TryParse(idStr, out long prodId))
+                {
+                    Producto productoSeleccionado = productos.FirstOrDefault(p => p.id == prodId);
+                    if (productoSeleccionado != null)
+                    {
+                        productosSeleccionados.Add(productoSeleccionado);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Producto con ID {prodId} no encontrado.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"ID inválido: {idStr}");
+                }
+            }
+
+            if (productosSeleccionados.Any())
+            {
+                Console.WriteLine("Productos seleccionados para actualizar el envío:");
+                foreach (var producto in productosSeleccionados)
+                {
+                    Console.WriteLine(
+                        $"ID: {producto.id}, Nombre: {producto.nombre}, Precio: {producto.precio:C}"
+                    );
+                }
+
+                Console.WriteLine(
+                    "¿Desea confirmar la actualización del envío con estos productos? (S/N)"
+                );
+                string confirmacion = Console.ReadLine();
+
+                if (confirmacion.Equals("S", StringComparison.OrdinalIgnoreCase))
+                {
+                    envio.Productos = productosSeleccionados; // Actualizar la lista de productos en el envío existente
+                    repo.UploadEnvio(envio); // Asumiendo que este método también guarda cambios
+                    Console.WriteLine("Envío actualizado exitosamente.");
+                }
+                else
+                {
+                    Console.WriteLine("Actualización del envío cancelada.");
+                }
+            }
+            else
+            {
+                Console.WriteLine(
+                    "No se seleccionaron productos válidos para actualizar el envío."
+                );
+            }
         }
-        // repo.UpdateCliente(cliente);
-        Console.WriteLine("Cliente actualizado exitosamente. Presione Enter para continuar...");
+        else
+        {
+            Console.WriteLine("No hay productos disponibles para seleccionar.");
+        }
+
+        Console.WriteLine("Presione Enter para continuar...");
         Console.ReadLine();
     }
 
@@ -162,7 +230,7 @@ public class EnvioServicio
             Console.WriteLine("Id inexistente. Ingrese un valor válido.");
 
         Envio envio = repo.GetEnvioById(id);
-        //repo.DeleteClienteById(envio.id);
+        repo.DeleteEnvioById(envio.id);
 
         Console.WriteLine("Envio eliminado exitosamente. Presione Enter para continuar...");
         Console.ReadLine();
