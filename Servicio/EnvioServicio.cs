@@ -96,34 +96,39 @@ public class EnvioServicio
         Console.ReadLine();
     }
 
-    public void leerEnvio() //Caso 2, método leer envio
+public List<Envio> leerEnvio() //Caso 2, método leer envio
+{
+    Console.Clear();
+    Console.WriteLine("Lista de envios:");
+
+    List<Envio> envios = repo.GetEnvios();
+
+    if (envios.Any())
     {
-        Console.Clear();
-        Console.WriteLine("Lista de envios:");
-
-        List<Envio> envios = repo.GetEnvios();
-
-        if (envios.Any())
+        foreach (var envio in envios)
         {
-            foreach (var envio in envios)
+            Console.WriteLine($"Envío N°: {envio.id}");
+            foreach (var producto in envio.productos)
             {
-                Console.WriteLine($"Envío N°: {envio.id}");
-                foreach (var producto in envio.productos)
-                {
-                    Console.WriteLine($"Nombre de producto: {producto.nombre}");
-                    Console.WriteLine($"Precio: {producto.precio}");
-                }
+                Console.WriteLine($"Nombre de producto: {producto.nombre}");
+                Console.WriteLine($"Precio: {producto.precio}");
             }
         }
-        else
-        {
-            Console.WriteLine("No hay envios disponibles.");
-        }
-        Console.WriteLine("Presione Enter para continuar...");
-        Console.ReadLine();
+    }
+    else
+    {
+        Console.WriteLine("No hay envios disponibles.");
     }
 
-    public void ActualizarEnvio()
+    Console.WriteLine("Presione Enter para continuar...");
+    Console.ReadLine();
+
+    // Return the list of envios
+    return envios;
+}
+
+
+    public void actualizarEnvio()
     {
         Console.Clear();
         Console.WriteLine("Actualizar Envío:");
@@ -195,7 +200,7 @@ public class EnvioServicio
 
                 if (confirmacion.Equals("S", StringComparison.OrdinalIgnoreCase))
                 {
-                    envio.Productos = productosSeleccionados; // Actualizar la lista de productos en el envío existente
+                    envio.productos = productosSeleccionados; // Actualizar la lista de productos en el envío existente
                     repo.UploadEnvio(envio); // Asumiendo que este método también guarda cambios
                     Console.WriteLine("Envío actualizado exitosamente.");
                 }

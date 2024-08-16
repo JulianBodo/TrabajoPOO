@@ -25,29 +25,33 @@ public class ClienteServicio
         Console.ReadLine();
     }
 
-    public void leerCliente() //Caso 2, método leer cliente
+    public List<Cliente> leerCliente() //Caso 2, método leer cliente
+{
+    Console.Clear();
+    Console.WriteLine("Lista de Clientes:");
+
+    List<Cliente> clientes = repo.GetClientes();
+
+    if (clientes.Any())
     {
-        Console.Clear();
-        Console.WriteLine("Lista de Clientes:");
-
-        List<Cliente> clientes = repo.GetClientes();
-
-        if (clientes.Any())
+        foreach (var cliente in clientes)
         {
-            foreach (var cliente in clientes)
-            {
-                Console.WriteLine(
-                    $"ID: {cliente.id}, Nombre: {cliente.nombre}, Dirección: {cliente.address}"
-                );
-            }
+            Console.WriteLine(
+                $"ID: {cliente.id}, Nombre: {cliente.nombre}, Dirección: {cliente.address}"
+            );
         }
-        else
-        {
-            Console.WriteLine("No hay clientes disponibles.");
-        }
-        Console.WriteLine("Presione Enter para continuar...");
-        Console.ReadLine();
     }
+    else
+    {
+        Console.WriteLine("No hay clientes disponibles.");
+    }
+
+    Console.WriteLine("Presione Enter para continuar...");
+    Console.ReadLine();
+
+    // Return the list of clients
+    return clientes;
+}
 
     public void buscarCliente() // Caso 3, método buscar cliente
     {

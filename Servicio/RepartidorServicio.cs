@@ -25,29 +25,33 @@ public class RepartidorServicio
         Console.ReadLine();
     }
 
-    public void leerRepartidor() //Caso 2, método leer repartidor
+ public List<Repartidor> leerRepartidor() //Caso 2, método leer repartidor
+{
+    Console.Clear();
+    Console.WriteLine("Lista de Repartidores:");
+
+    List<Repartidor> repartidores = repo.GetRepartidores();
+
+    if (repartidores.Any())
     {
-        Console.Clear();
-        Console.WriteLine("Lista de Repartidores:");
-
-        List<Repartidor> repartidores = repo.GetRepartidores();
-
-        if (repartidores.Any())
+        foreach (var repartidor in repartidores)
         {
-            foreach (var repartidor in repartidores)
-            {
-                Console.WriteLine(
-                    $"ID: {repartidor.id}, Nombre: {repartidor.nombre}, Apellido: {repartidor.apellido}"
-                );
-            }
+            Console.WriteLine(
+                $"ID: {repartidor.id}, Nombre: {repartidor.nombre}, Apellido: {repartidor.apellido}"
+            );
         }
-        else
-        {
-            Console.WriteLine("No hay repartidores disponibles.");
-        }
-        Console.WriteLine("Presione Enter para continuar...");
-        Console.ReadLine();
     }
+    else
+    {
+        Console.WriteLine("No hay repartidores disponibles.");
+    }
+
+    Console.WriteLine("Presione Enter para continuar...");
+    Console.ReadLine();
+
+    // Return the list of repartidores
+    return repartidores;
+}
 
     public void buscarRepartidor() // Caso 3, método buscar repartidor
     {
