@@ -12,7 +12,7 @@ class DetalleController
     static List<Detalle> detalles = new List<Detalle>();
     static long currentId = 1;
 
-    public static void detailMenu()
+    public static void detalleMenu()
     {
         //Menú CRUD
         bool continuar = true;
@@ -25,7 +25,7 @@ class DetalleController
                 "╔════════════════════════════════════════════════════════════════════════════════════════════════╗"
             );
             Console.WriteLine(
-                "║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (3) Eliminar    ║    (X) Atrás    ║"
+                "║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (4) Eliminar    ║    (X) Atrás    ║"
             );
             Console.WriteLine(
                 "╚════════════════════════════════════════════════════════════════════════════════════════════════╝"

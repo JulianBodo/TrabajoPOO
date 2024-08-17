@@ -2,7 +2,7 @@
 
 class Menu
 {
-    public static string connectionString = "mongodb+srv://bodojulian01:O0keLTw8WKpZSITQ@trabajopoo.yauo2.mongodb.net/?retryWrites=true&w=majority&appName=TrabajoPOO";
+    public static string connectionString = "mongodb+srv://TrabajoPOO:TrabajoPOO@personal.t9z4q.mongodb.net/";
 
     static void Main(string[] args)
     {
@@ -12,13 +12,13 @@ class Menu
             Console.Clear();
             Console.WriteLine("\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\n");
             Console.WriteLine(
-                "╔══════════════════════════════════════════════════════════════════════════════════════════════════╗"
+                "╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗"
             );
             Console.WriteLine(
-                "║    (1) Producto    ║    (2) Cliente    ║    (3) Repartidor    ║    (4) Envio    ║   (X) Salir    ║"
+                "║    (1) Producto    ║    (2) Cliente    ║    (3) Repartidor    ║    (4) Envio    ║    (5) Detalle    ║   (X) Salir    ║"
             );
             Console.WriteLine(
-                "╚══════════════════════════════════════════════════════════════════════════════════════════════════╝"
+                "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝"
             );
             Console.Write("\r\nSeleccione una opción: ");
 
@@ -56,13 +56,22 @@ class Menu
                     break;
                 case '4':
                     Console.Clear();
-                    Console.WriteLine(" ● \u001b[1m\u001b[4mREPARTIDORES\u001b[0m\u001b[0m");
+                    Console.WriteLine(" ● \u001b[1m\u001b[4mENVIOS\u001b[0m\u001b[0m");
                     EnvioController.envioMenu();
                     Console.WriteLine(
                         "\r\nSeleccione una opción o presione Enter para volver a atrás"
                     );
                     Console.ReadLine();
                     break;
+                case '5':
+                    Console.Clear();
+                    Console.WriteLine(" ● \u001b[1m\u001b[4mDETALLES\u001b[0m\u001b[0m");
+                    DetalleController.detalleMenu();
+                    Console.WriteLine(
+                        "\r\nSeleccione una opción o presione Enter para volver a atrás"
+                    );
+                    Console.ReadLine();
+                    break;    
                 case 'x':
                     Console.WriteLine("\nSaliendo...");
                     return;
