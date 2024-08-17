@@ -19,7 +19,7 @@ class ClienteController
         {
             Console.Clear();
             Console.WriteLine("\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\n");
-            Console.WriteLine("Productos");
+            Console.WriteLine("Clientes");
             Console.WriteLine(
                 "╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗"
             );
