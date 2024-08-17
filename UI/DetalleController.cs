@@ -1,13 +1,18 @@
-class EnvioController
+
+class DetalleController
 {
     static string url = Menu.connectionString;
     static string database = "Sublimes_Sabores";
 
-    static EnvioServicio envioServicio = new EnvioServicio(
-        new EnvioRepositorio(new MongoDBManager<Envio>(url, database, "Envio"))
+    static DetalleServicio detalleServicio = new DetalleServicio(
+        new DetalleRepositorio(new MongoDBManager<Detalle>(url, database, "Detalle"))
     );
 
-    public static void envioMenu()
+    // Lista para almacenar los detalles
+    static List<Detalle> detalles = new List<Detalle>();
+    static long currentId = 1;
+
+    public static void detailMenu()
     {
         //Menú CRUD
         bool continuar = true;
@@ -15,12 +20,12 @@ class EnvioController
         {
             Console.Clear();
             Console.WriteLine("\u001b[1mMENÚ DE SISTEMA - \"Sublimes Sabores\"\u001b[0m\n");
-            Console.WriteLine("Envíos");
+            Console.WriteLine("Detalles");
             Console.WriteLine(
                 "╔════════════════════════════════════════════════════════════════════════════════════════════════╗"
             );
             Console.WriteLine(
-                "║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (4) Eliminar    ║    (X) Atrás    ║"
+                "║    (1) Crear    ║    (2) Leer    ║    (3) Actualizar    ║    (3) Eliminar    ║    (X) Atrás    ║"
             );
             Console.WriteLine(
                 "╚════════════════════════════════════════════════════════════════════════════════════════════════╝"
@@ -32,16 +37,16 @@ class EnvioController
             switch (opcion)
             {
                 case '1':
-                    envioServicio.crearEnvio();
+                    detalleServicio.crearDetalle();
                     break;
                 case '2':
-                    envioServicio.leerEnvio();
+                    detalleServicio.leerDetalle();
                     break;
                 case '3':
-                    envioServicio.actualizarEnvio();
+                    detalleServicio.actualizarDetalle();
                     break;
                 case '4':
-                    envioServicio.eliminarEnvio();
+                    detalleServicio.eliminarDetalle();
                     break;
                 case 'x':
                     continuar = false;

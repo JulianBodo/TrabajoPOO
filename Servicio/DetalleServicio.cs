@@ -26,7 +26,7 @@ public class DetalleServicio
         );
     }
 
-    public void CrearDetalle()
+    public void crearDetalle()
     {
         Console.Clear();
         Console.WriteLine("Crear Detalle:");
@@ -109,7 +109,7 @@ public class DetalleServicio
         Console.WriteLine("Detalle creado exitosamente.");
     }
 
-    public void leerDetalles()
+    public void leerDetalle()
     {
         Console.Clear();
         Console.WriteLine("Lista de detalles:");
@@ -209,7 +209,7 @@ public class DetalleServicio
         Console.WriteLine("Detalle actualizado exitosamente.");
     }
 
-    public void deleteDetalle()
+    public void eliminarDetalle()
     {
         Console.Clear();
         Console.WriteLine("Eliminar Detalle:");

@@ -225,7 +225,7 @@ public List<Envio> leerEnvio() //Caso 2, método leer envio
         Console.ReadLine();
     }
 
-    public void deleteEnvio() //Caso 5, método eliminar cliente
+    public void eliminarEnvio() //Caso 5, método eliminar cliente
     {
         Console.Clear();
         Console.WriteLine("Eliminar Envio:");
