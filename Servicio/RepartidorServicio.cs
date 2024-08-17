@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 public class RepartidorServicio
 {
-    RepartidorRepositorio repo;
+    public RepartidorRepositorio repo;
 
     public RepartidorServicio(RepartidorRepositorio repo)
     {
